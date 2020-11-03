@@ -32,7 +32,23 @@
         <activity
             android:name=".Maps_act"
             android:label="@string/title_activity_maps_act"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".home_act"
+            android:label="Menu"></activity>
+        <activity
+            android:name=".clientes_act"
+            android:label="Clientes"></activity>
+        <activity
+            android:name=".seguridad_act"
+            android:label="Seguridad"></activity>
+        <activity
+            android:name=".prestamos_act"
+            android:label="Prestamos"></activity>
+        <activity
+            android:name=".info_act"
+            android:label="Info"></activity>
+
+        <activity android:name=".MainActivity" android:label="Banco BPM">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

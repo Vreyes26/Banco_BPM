@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgs">
+    android:background="@drawable/bgs"
+    tools:context=".info_act">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -29,26 +30,26 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="153dp"
-        android:layout_height="129dp"
+        android:layout_width="102dp"
+        android:layout_height="72dp"
         android:background="#00FFFFFF"
         android:onClick="Maps"
         android:scaleType="centerCrop"
         android:tint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.506"
+        app:layout_constraintVertical_bias="0.509"
         app:srcCompat="@drawable/location" />
 
     <VideoView
         android:id="@+id/videoView2"
-        android:layout_width="327dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="411dp"
+        android:layout_height="174dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

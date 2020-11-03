@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private ProgressBar proceso;
     private Button botonsesion;
-    String user, pass;
+    private String user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
         nombre = (EditText)findViewById(R.id.edtx1);
         contraseña = (EditText)findViewById(R.id.edtx2);
-        proceso = (ProgressBar)findViewById(R.id.progress);
         botonsesion = (Button)findViewById(R.id.btninicio);
         textView = (TextView)findViewById(R.id.tvMensaje);
+        proceso = (ProgressBar)findViewById(R.id.progress);
+        proceso.setVisibility(View.INVISIBLE);
 
         botonsesion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 new Task().execute();
             }
         });
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             proceso.setVisibility(View.VISIBLE);
-
         }
 
         @Override
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             proceso.setVisibility(View.INVISIBLE);
-
             user = nombre.getText().toString().toUpperCase();
             pass = contraseña.getText().toString().toUpperCase();
             if (user.equals("ANDROID") && pass.equals("123"))

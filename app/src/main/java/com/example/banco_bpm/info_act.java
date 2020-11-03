@@ -26,6 +26,7 @@ public class info_act extends AppCompatActivity {
 
         MediaController media = new MediaController(this);
         videoView.setMediaController(media);
+        videoView.start();
     }
 
     public void Maps(View v)
