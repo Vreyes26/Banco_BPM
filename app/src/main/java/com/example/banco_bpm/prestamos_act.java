@@ -27,19 +27,84 @@ public class prestamos_act extends AppCompatActivity {
         btnDeuda = (Button)findViewById(R.id.deuda_btn);
         btnPrestamo = (Button)findViewById(R.id.prestamo_btn);
 
-        ArrayAdapter<String> ListaClientes = (ArrayAdapter<String>) getIntent().getSerializableExtra("listaclientes");
-        ArrayAdapter<String> ListaPrestamos = (ArrayAdapter<String>) getIntent().getSerializableExtra("listaprestamos");
+        String[] listaClientes = {"AXEL","ROXANA"};
+        String[] listaPrestamos = {"CREDITO HIPOTECARIO","CREDITO AUTOMOTRIZ"};
+        ArrayAdapter<String> adapt = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listaClientes);
+        ArrayAdapter<String> adapts = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listaPrestamos);
+        espUser.setAdapter(adapt);
+        espSaldo.setAdapter(adapts);
+    }
 
-        //error con el spinner, no se como se implementaba xd
-        espUser.setAdapter(ListaClientes);
-        espSaldo.setAdapter(ListaPrestamos);
+    public void calcularPrestamo(View v)
+    {
+        try {
+            tv.setText("Su saldo final es:"+(Usuario()+Credito()));
+        }
+        catch (Exception e)
+        {
+            tv.setText("Ha ocurrido un error");
+        }
     }
 
     public void calcularDeuda(View v)
     {
-        String usuario = espUser.getSelectedItem().toString();
-        String saldo = espSaldo.getSelectedItem().toString();
-
-
+        try {
+            tv.setText("Su deuda final es:"+((Usuario()+Credito())/Deuda()));
+        }
+        catch (Exception e)
+        {
+            tv.setText("Ha ocurrido un error");
+        }
     }
+
+    public int Credito()
+    {
+        String credito = espSaldo.getSelectedItem().toString();
+
+        if (credito.equals("CREDITO HIPOTECARIO")) {
+            return 1000000;
+        } else if (credito.equals("CREDITO AUTOMOTRIZ")) {
+            return 500000;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    private int Usuario()
+    {
+        String usuario = espUser.getSelectedItem().toString();
+
+        if(usuario.equals("AXEL"))
+        {
+            return 750000;
+        }
+        else if(usuario.equals("ROXANA"))
+        {
+            return 900000;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    private int Deuda()
+    {
+        String i = espSaldo.getSelectedItem().toString();
+        if (i.equals("CREDITO HIPOTECARIO"))
+        {
+            return 12;
+        }
+        else if (i.equals("CREDITO AUTOMOTRIZ"))
+        {
+            return 8;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 }
